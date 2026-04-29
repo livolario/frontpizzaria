@@ -1,0 +1,100 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap'); */
+
+:root{
+    --brand-amarelo: #FFD700;
+    --brand-vermelho: #B22424;
+    --brand-vermelho2: #7f1a1a;
+    --brand-cinza: #696663;
+    --brand-cinza2: #E5DDDD;
+    --brand-branco: #FFFFFF;
+}
+/* Cria um padrão de estilo que vai ser aplicado na página */
+
+body{
+    font-family: "Inter", sans-serif;
+}
+
+.bg-brand-amarelo{
+    background-color: var(--brand-amarelo);
+}
+
+.bg-brand-vermelho{
+    background-color: var(--brand-vermelho);
+}
+
+.bg-brand-vermelho2{
+    background-color: var(--brand-vermelho2);
+}
+
+.text-brand-vermelho{
+    color: var(--brand-vermelho);
+}
+
+.text-brand-branco{
+    color: var(--brand-branco);
+}
+
+.text-brand-vermelho:hover{
+    color: var(--brand-vermelho2);
+}
+
+.btn-brand-vermelho{
+    background-color: var(--brand-vermelho);
+    color: var(--brand-branco);
+}
+
+.btn-brand-vermelho:hover{
+    background-color: var(--brand-vermelho2);
+    color: var(--brand-branco);
+}
+
+.logo{
+    width: 100px;
+    height: auto;
+}
+
+.dedinho{
+    cursor: pointer;
+}
+
+.hero-section{
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/src/carrossel/capa.jpg') center/cover no-repeat;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.icone{
+    width: 55px;
+    height: 55px;
+}
+
+.rede{
+    width: 45px;
+    height: 45px;
+}
+
+.redes{
+    width: 40px;
+    height: 40px;
+}
+
+.sombra{
+    box-shadow: rgb(170, 167, 167) 10px 10px 10px;
+}
+
+.login-admin-container{
+    max-width: 400px;
+    margin: 100px auto;
+}
+ 
+/*esconde o modal dos produtos*/
+ 
+#painel-administrativo{
+    display: none;
+}
+ 
+ 
+ 

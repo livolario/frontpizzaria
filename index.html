@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorita Pizzaria</title>
+
+
+    <!-- Adicionando o css do bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+
+    <!-- Adicionando a fonte do google fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Adicionando o fontawsome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <!-- Adicionando o favicon -->
+    <link rel="shortcut icon" href="/src/favicon.ico" type="image/x-icon">
+
+    <!-- Adicionando o meu CSS -->
+    <link rel="stylesheet" href="style.css"> <!-- esta ordem importa!!!!! -->
+
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <!-- Cabeçalho da página -->
+    <nav class="navbar navbar-expand-lg shadow-sm sticky-top bg-brand-amarelo">
+        <div class="container">
+            <a class="navbar-brand dedinho d-flex align-items-center justify-content-center gap-2" href="index.html">
+                <div class="d-flex justify-content-center align-items-center">
+                    <img class="logo" src="/src/piz.png" alt="logotipo pizzaria">
+                    <span class="text-brand-vermelho fw-bold fs-4">
+                        Favorita Pizzaria
+                    </span>
+                </div>
+            </a>
+
+            <!-- Adicionando o botão da responsividade -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="fa-solid fa-bars fa-lg" style="color: #b22424;"></span>
+            </button>
+
+            <!-- Criação do menu com links -->
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav text-brand-vermelho fw-semibold gap-lg-4">
+                    <li class="nav-item">
+                        <a class="nav-link dedinho text-brand-vermelho fs-5" href="index.html">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link dedinho text-brand-vermelho fs-5" href="cardapio.html">
+                            Cardápio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link dedinho text-brand-vermelho fs-5" href="sobre.html">
+                            Sobre nós
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link dedinho text-brand-vermelho fs-5" href="contato.html">
+                            Contato
+                        </a>
+                    </li>
+                    <li class="nav-item d-none" id="nav-admin">
+                        <a class="nav-link dedinho text-brand-vermelho fs-5" href="admin.html">
+                            Admin
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Ícones -->
+            <div class="d-flex align-items-center gap-4 text-brand-vermelho">
+                <span class="fs-6 fw-bold d-none d-lg-block"></span>
+                <a href="login.html" class="text-brand-vermelho text-decoration-none " id="btn-auth" title="Login / Cadastro">
+                    <i class="fa-solid fa-user fa-2xl" style="color: #b22424;"></i>
+                </a>
+                <a href="carrinho.html" class="text-brand-vermelho text-decoration-none  position-relative">
+                    <i class="fa-solid fa-cart-shopping fa-2xl" style="color: #b22424;"></i>
+                    <span id="cart-count" class="badge bg-brand-vermelho rounded-pill cart-badge d-none">
+                        0
+                    </span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <main class="flex-grow-1">
+        <!-- Conteúdo principal da página -->
+        <div class="view-section">
+            <section class="hero-section px-3">
+                <div class="container">
+                    <h1 class="display-4 fw-bold text-brand-branco mb-3 text-shadow">Bem vindo à Favorita Pizzaria</h1>
+                    <p class="lead mb-4 fw-light text-brand-branco">
+                        As melhores pizzas quentinhas na sua porta, com ingredientes frescos e amor em cada fatia.
+                    </p>
+                    <a class="btn btn-brand-vermelho text-brand-branco btn-lg px-5 shadow-lg fw-bold" href="cardapio.html">Ver cardápio</a>
+                </div>
+            </section>
+
+            <section class="py-5">
+                <div class="container text-center" style="max-width: 800px;">
+                    <p class="fs-5">Chegamos para transformar suas noites em momentos deliciosos.</p>
+                    <p class="fs-5">Na Favorita Pizzaria, unimos ingredientes frescos, massas artesanais e aquele toque especial que só uma pizza feita com amor tem.</p>
+                    <p class="fs-5">Cada fatia é preparada com cuidado, do forno à sua mesa, garantindo crocância, sabor e qualidade incomparáveis.</p>
+                    <p class="fs-5">Nosso cardápio foi criado para agradar paladares mais exigentes com combinações especiais e exclusivas da casa.</p>
+                    <p class="fs-5">Seja para um jantar em família, um encontro com os amigos ou aquela refeição rápida do domingo à noite, estamos prontos para te surpreender.</p>
+                    <p class="fs-5">Venha nos conhecer e descubra por que a Favorita Pizzaria já está conquistando corações e estômagos por aqui.</p>
+                    <p class="fs-5">Faça seu pedido online e experimente a melhor pizza da cidade, recém saída do forno à lenha.</p>
+                </div>
+            </section>
+            <section class="py-5">
+                <div class="container">
+                    <div class="row justify-content-center g-4">
+                        <div class="col-md-6 col-lg-5 text-center">
+                            <div class="feature-card mb-2">
+                                <img src="/src/produtos.jpg" class="w-100 rounded sombra mb-2" alt="legumes e pimenta em uma tábua de madeira">
+                                <span class="medium fw-medium">Melhores produtos</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-5 text-center">
+                            <div class="feature-card mb-2">
+                                <img src="/src/sabores.jpg" class="w-100 rounded sombra mb-2" alt="">
+                                <span class="medium fw-medium">Sabores variados</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-5 text-center">
+                            <div class="feature-card mb-2">
+                                <img src="/src/atendimento.jpg" class="w-100 rounded sombra mb-2" alt="">
+                                <span class="medium fw-medium">Qualidade no atendimento</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-5 text-center">
+                            <div class="feature-card mb-2">
+                                <img src="/src/entrega.jpg" class="w-100 rounded sombra mb-2" alt="">
+                                <span class="medium fw-medium">Rapidez na entrega</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="bg-brand-amarelo pt-5 pb-5 mt-auto"><!-- Rodapé da página -->
+        <div class="container">
+            <div class="row text-center text-md-start g-4 align-items-center">
+                <!-- primeira coluna -->
+                <div class="col-md-4 d-flex flex-column align-items-center">
+                    <div class="d-flex gap-3 fs-1 align-items-center">
+                        <img class="icone" src="/src/mastercard.png" alt="logotipo mastercard">
+                        <img class="icone" src="/src/visa.png" alt="logotipo visa">
+                        <i class="fa-brands fa-pix" style="color: rgb(99, 230, 190);"></i>
+                    </div>
+                    <span class="text-brand-vermelho fw-bold small">Formas de Pagamento</span>
+                </div>
+                <!-- Segunda coluna -->
+                 <div class="col-md-4 d-flex flex-column align-items-center">
+                    <div class="d-flex gap-3 fs-1">
+                        <a href="">
+                            <img class="rede" src="/src/facebook.png" alt="">
+                        </a>
+                        <a href="">
+                            <img class="redes" src="/src/instagram.png" alt="">
+                        </a>
+                        <a href="">
+                            <img  class="redes" src="/src/whatsapp.png" alt="">
+                        </a>
+                    </div>
+                 </div>
+                 <!-- Terceira coluna -->
+                  <div class="col-md-4 d-flex flex-column align-items-center">
+                    <img class="rede" src="/src/email.png" alt="">
+                    <span class="text-brand-vermelho fw-bold small">
+                        falecom@favoritapizzaria.com.br
+                    </span>
+                  </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Adicionando o js do bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

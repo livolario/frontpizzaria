@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorita Pizzaria</title>
+
+
+    <!-- Adicionando o css do bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+
+    <!-- Adicionando a fonte do google fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Adicionando o fontawsome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <!-- Adicionando o favicon -->
+    <link rel="shortcut icon" href="/src/favicon.ico" type="image/x-icon">
+
+    <!-- Adicionando o meu CSS -->
+    <link rel="stylesheet" href="style.css"> <!-- esta ordem importa!!!!! -->
+
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <!-- Cabeçalho da página -->
+    <nav class="navbar navbar-expand-lg shadow-sm sticky-top bg-brand-amarelo">
+        <div class="container">
+            <a class="navbar-brand dedinho d-flex align-items-center justify-content-center gap-2" href="index.html">
+                <div class="d-flex justify-content-center align-items-center">
+                    <img class="logo" src="/src/piz.png" alt="logotipo pizzaria">
+                    <span class="text-brand-vermelho fw-bold fs-4">
+                        Favorita Pizzaria
+                    </span>
+                </div>
+            </a>
+
+            <!-- Adicionando o botão da responsividade -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="fa-solid fa-bars fa-lg" style="color: #b22424;"></span>
+            </button>
+
+            <!-- Criação do menu com links -->
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav text-brand-vermelho fw-semibold gap-lg-4">
+                    <li class="nav-item">
+                        <a class="nav-link dedinho text-brand-vermelho fs-5" href="index.html">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link dedinho text-brand-vermelho fs-5" href="cardapio.html">
+                            Cardápio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link dedinho text-brand-vermelho fs-5" href="sobre.html">
+                            Sobre nós
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link dedinho text-brand-vermelho fs-5" href="contato.html">
+                            Contato
+                        </a>
+                    </li>
+                    <li class="nav-item d-none" id="nav-admin">
+                        <a class="nav-link dedinho text-brand-vermelho fs-5" href="admin.html">
+                            Admin
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Ícones -->
+            <div class="d-flex align-items-center gap-4 text-brand-vermelho">
+                <span class="fs-6 fw-bold d-none d-lg-block"></span>
+                <a href="login.html" class="text-brand-vermelho text-decoration-none " id="btn-auth"
+                    title="Login / Cadastro">
+                    <i class="fa-solid fa-user fa-2xl" style="color: #b22424;"></i>
+                </a>
+                <a href="carrinho.html" class="text-brand-vermelho text-decoration-none  position-relative">
+                    <i class="fa-solid fa-cart-shopping fa-2xl" style="color: #b22424;"></i>
+                    <span id="cart-count" class="badge bg-brand-vermelho rounded-pill cart-badge d-none">
+                        0
+                    </span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- Conteúdo principal da página -->
+    <main class="flex-grow-1">
+        <!-- seção de login -->
+        <div id="login-admin" class="container-fluid login-admin-container">
+            <div class="card shadow p-4 text-center">
+                <h3 class="mb-4">Acesso Restrito</h3>
+                <div class="mb-3">
+                    <input type="text" id="admin-cpf" class="form-control" placeholder="CPF admin">
+                </div>
+                <div class="mb-3">
+                    <input type="password" id="admin-senha" class="form-control" placeholder="Senha">
+                </div>
+                <button id="btn-login-admin" class="btn btn-brand-vermelho w-100 fw-bold">
+                    Entrar no Painel
+                </button>
+                <hr>
+                <a href="./index.html" class="text-muted small">Voltar para o site</a>
+            </div>
+        </div>
+
+        <!-- painel administrativo -->
+        <div id="painel-administrativo" class="py-5">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 class="fw-bold text-brand-vermelho">
+                        <i class="fa-solid fa-gear"></i>Gestão de Produtos
+                    </h2>
+                    <button id="btn-cadastrar" class="btn btn-brand-vermelho fw-bold" data-bs-toggle="modal"
+                        data-bs-target="#adminModalCadastrar">
+                        <i class="fa-solid fa-plus"></i>
+                        Novo Produto
+                    </button>
+                    <button id="btn-logout" class="btn btn-outline-secondary">
+                        Sair
+                    </button>
+                </div>
+
+                <!-- criação da tabela dos produtos -->
+                <div class="card shadow-sm border-0">
+                    <div class="card-body p-0 table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead class="table-light"> <!--Cabeçalho da tabela-->
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Imagem</th>
+                                    <th>Nome / Descrição </th>
+                                    <th>Tipo</th>
+                                    <th>Preço</th>
+                                    <th class="text-end">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabela-admin">
+                                <!-- vai ser preenchida pelo js -->
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <!--Modal de cadastro-->
+        <div class="modal fade" id="adminModalCadastrar" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form id="form-admin">
+                        <div class="modal-header bg-warning">
+                            <h5 class="modal-title fw-bold text-brand-vermelho">Adicionar Produto</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal">
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="">Id do Produto</label>
+                                <input type="text" id="cadastro-id" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="">Nome do Produto</label>
+                                <input type="text" id="cadastro-nome" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="">Descrição</label>
+                                <input type="text" id="cadastro-descricao" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="">Tipo</label>
+                                <input type="text" id="cadastro-tipo" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="">Imagem</label>
+                                <input type="text" id="cadastro-imagem" class="form-control" required>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <label for="">Valor (R$)</label>
+                                <input type="number" id="cadastro-valor" step="0.01" class="form-control" min="0" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-success fw-bold" id="admin-salvar">
+                                Salvar
+                            </button>
+
+                        </div>
+
+
+                    </form>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+<!-- MODAL DE EDIÇÃO -->
+        <div class="modal fade" id="adminModalEditar">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form id="form-editar">
+                        <div class="modal-header bg-warning">
+                            <h5 class="modal-title fw-bold text-brand-vermelho" id="adminModalLabel">Editar Produtos
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="text" class="form-control" id="editar-id" disabled>
+ 
+                            <div class="mb-3">
+                                <label for="">Nome do Produto</label>
+                                <input type="text" class="form-control" id="editar-nome" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="">Descrição</label>
+                                <input type="text" class="form-control" id="editar-descricao" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="">Tipo</label>
+                                <input type="text" class="form-control" id="editar-tipo" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="">Valor (R$)</label>
+                                <input type="number" class="form-control" id="editar-valor" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="">Imagem</label>
+                                <input type="text" class="form-control" id="editar-imagem" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="btn-atualizar" class="btn btn-success fw-bold" type="submit">
+                                Atualizar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-brand-amarelo pt-5 pb-5 mt-auto"><!-- Rodapé da página -->
+        <div class="container">
+            <div class="row text-center text-md-start g-4 align-items-center">
+                <!-- primeira coluna -->
+                <div class="col-md-4 d-flex flex-column align-items-center">
+                    <div class="d-flex gap-3 fs-1 align-items-center">
+                        <img class="icone" src="/src/mastercard.png" alt="logotipo mastercard">
+                        <img class="icone" src="/src/visa.png" alt="logotipo visa">
+                        <i class="fa-brands fa-pix" style="color: rgb(99, 230, 190);"></i>
+                    </div>
+                    <span class="text-brand-vermelho fw-bold small">Formas de Pagamento</span>
+                </div>
+                <!-- Segunda coluna -->
+                <div class="col-md-4 d-flex flex-column align-items-center">
+                    <div class="d-flex gap-3 fs-1">
+                        <a href="">
+                            <img class="rede" src="/src/facebook.png" alt="">
+                        </a>
+                        <a href="">
+                            <img class="redes" src="/src/instagram.png" alt="">
+                        </a>
+                        <a href="">
+                            <img class="redes" src="/src/whatsapp.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <!-- Terceira coluna -->
+                <div class="col-md-4 d-flex flex-column align-items-center">
+                    <img class="rede" src="/src/email.png" alt="">
+                    <span class="text-brand-vermelho fw-bold small">
+                        falecom@favoritapizzaria.com.br
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Adicionando o js do bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="admin.js"></script>
+</body>
+
+</html>
